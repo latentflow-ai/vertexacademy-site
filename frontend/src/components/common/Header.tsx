@@ -45,7 +45,7 @@ const Header = ({ className = '' }: HeaderProps) => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 header-blur ${
-        isScrolled ? 'bg-background/90 shadow-subtle border-b border-border' : 'bg-background/80'
+        isScrolled ? 'bg-[#fffffff5] shadow-subtle border-b border-border' : 'bg-[#ffffffe8] border-b border-border'
       } ${className}`}
     >
       <div className="container mx-auto px-4 sm:px-6">
