@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vertex Academy — Design System Proof (v2)</title>
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link rel="stylesheet"
+    href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@300,400,500,700&display=swap" />
+  <style>
+    :root {
+      --bg:#ffffff; --surface:#f2f6fc; --surface-2:#f8fafd; --navy:#0b1f4d; --navy-fg:#eaf0fb;
+      --blue:#1e50c8; --blue-strong:#163fa0; --blue-tint:#e4ecfb;
+      --green:#0f7a43; --green-bright:#1fa85c; --green-tint:#e1f4e9;
+      --gold:#f4b324; --gold-strong:#b07a09; --gold-tint:#fcf0d4;
+      --text-1:#0b1f4d; --text-2:#475677; --text-3:#8794ae; --border:rgba(11,31,77,.12);
+      --display:'Clash Display',sans-serif; --body:'Satoshi',system-ui,sans-serif;
+      --section-y:clamp(3rem,6vw,5rem);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:var(--bg);color:var(--text-1);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased}
+    h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.02em;line-height:1.04}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 clamp(1.25rem,5vw,2.5rem)}
+    section{padding-block:var(--section-y);border-bottom:1px solid var(--border)}
+    .eyebrow{font-weight:700;font-size:.8125rem;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:.75rem}
+    .lede{color:var(--text-2);max-width:60ch;margin-top:.75rem}
+    .grid{display:grid;gap:1rem}
+    .surfaces{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-top:1.5rem}
+    .scard{border-radius:1.25rem;padding:1.5rem;border:1px solid var(--border);min-height:150px}
+    .scard small{font-family:monospace;opacity:.7}
+    .d2xl{font-size:clamp(3rem,8vw,6rem)} .dxl{font-size:clamp(2.75rem,6vw,5rem)}
+    .dlg{font-size:clamp(2.25rem,5vw,3.75rem)} .dmd{font-size:clamp(1.875rem,3.6vw,2.75rem)}
+    .dsm{font-size:clamp(1.5rem,2.6vw,2rem)}
+    .row{display:flex;align-items:baseline;gap:1rem;padding:.5rem 0;border-bottom:1px dashed var(--border);flex-wrap:wrap}
+    .row .lbl{font-family:monospace;font-size:.72rem;color:var(--text-3);width:120px;flex-shrink:0}
+    .blg{font-size:1.125rem} .bmd{font-size:1rem} .bsm{font-size:.875rem}
+    .btns{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem;align-items:center}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;height:48px;padding:0 1.6rem;border-radius:999px;font-weight:600;border:2px solid transparent;cursor:pointer;transition:.25s cubic-bezier(.16,1,.3,1);text-decoration:none;font-family:var(--body)}
+    .btn:hover{transform:translateY(-2px)}
+    .b-primary{background:var(--blue);color:#fff} .b-primary:hover{background:var(--blue-strong)}
+    .b-green{background:var(--green);color:#fff} .b-gold{background:var(--gold);color:var(--navy)}
+    .b-secondary{border-color:rgba(11,31,77,.2);color:var(--navy)} .b-secondary:hover{background:var(--surface)}
+    .b-ghost{color:var(--blue)} .b-ghost:hover{background:var(--blue-tint)}
+    .cards{grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin-top:1.5rem}
+    .card{background:var(--surface-2);border:1px solid var(--border);border-radius:1.25rem;padding:1.5rem;transition:.3s}
+    .card:hover{transform:translateY(-6px);box-shadow:0 30px 60px -28px rgba(11,31,77,.35)}
+    .badge{display:inline-flex;align-items:center;gap:.4rem;padding:.35rem .8rem;border-radius:999px;font-size:.8rem;font-weight:700}
+    .bg-blue{background:var(--blue-tint);color:var(--blue-strong)}
+    .bg-green{background:var(--green-tint);color:var(--green)}
+    .bg-gold{background:var(--gold-tint);color:var(--gold-strong)}
+    table{width:100%;border-collapse:collapse;margin-top:1.5rem;font-size:.9rem}
+    th,td{text-align:left;padding:.6rem .75rem;border-bottom:1px solid var(--border)}
+    th{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text-3)}
+    .sw{display:inline-block;width:14px;height:14px;border-radius:4px;vertical-align:middle;margin-right:6px;border:1px solid var(--border)}
+    .pass{color:var(--green);font-weight:700} .fail{color:#c2341d;font-weight:700} .ratio{font-family:monospace;font-weight:700}
+    .navy-panel{background:var(--navy);color:var(--navy-fg);border-radius:1.5rem;padding:clamp(2rem,4vw,3rem);margin-top:1.5rem}
+    .logos{display:flex;align-items:center;gap:2.5rem;flex-wrap:wrap;margin-top:1.5rem}
+    .name{font-family:var(--display);font-weight:600;font-size:1.5rem}
+  </style>
+</head>
+<body>
+  <header style="background:var(--navy);color:var(--navy-fg)">
+    <div class="wrap" style="padding-block:2.5rem">
+      <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem">
+        <svg width="44" height="44" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1.5" y="1.5" width="45" height="45" rx="13" fill="#0b1f4d" stroke="#f4b324" stroke-opacity=".4"/>
+          <path d="M13 17 L24 37 L35 17" fill="none" stroke="#fff" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M20 17 L24 25 L28 17" fill="none" stroke="#1fa85c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M24 7.2 L25.5 10.7 L29.2 11 L26.4 13.4 L27.3 17 L24 15 L20.7 17 L21.6 13.4 L18.8 11 L22.5 10.7 Z" fill="#f4b324"/>
+        </svg>
+        <span class="name">Vertex Academy</span>
+      </div>
+      <p class="eyebrow" style="color:var(--gold)">Design System Proof · v2</p>
+      <h1 class="dlg">Bold. Fresh. Interactive.</h1>
+      <p class="lede" style="color:rgba(234,240,251,.8)">Clash Display + Satoshi · royal blue, laurel green &amp; gold from the crest · WCAG AA verified live below.</p>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <section>
+      <p class="eyebrow">01 — Surfaces</p>
+      <h2 class="dsm">Four layers</h2>
+      <div class="grid surfaces">
+        <div class="scard" style="background:var(--bg)">Background<br><small>#FFFFFF</small></div>
+        <div class="scard" style="background:var(--surface)">Surface<br><small>#F2F6FC</small></div>
+        <div class="scard" style="background:var(--surface-2)">Surface-2 / Card<br><small>#F8FAFD</small></div>
+        <div class="scard" style="background:var(--navy);color:var(--navy-fg)">Navy panel<br><small>#0B1F4D</small></div>
+      </div>
+    </section>
+
+    <section>
+      <p class="eyebrow">02 — Type scale</p>
+      <h2 class="dsm">Clash Display (≥24px) · Satoshi body</h2>
+      <div style="margin-top:1.5rem">
+        <div class="row"><span class="lbl">display-2xl</span><span class="d2xl">Academic vertex</span></div>
+        <div class="row"><span class="lbl">display-xl</span><span class="dxl">Knowledge experts</span></div>
+        <div class="row"><span class="lbl">display-lg</span><span class="dlg">Shaping toppers</span></div>
+        <div class="row"><span class="lbl">display-md</span><span class="dmd">Our programs</span></div>
+        <div class="row"><span class="lbl">body-lg</span><span class="blg">Small batches, expert mentors, and real measurable progress.</span></div>
+        <div class="row"><span class="lbl">body-md</span><span class="bmd">Satoshi keeps body copy clean and legible on every surface.</span></div>
+        <div class="row"><span class="lbl">meta</span><span class="bsm" style="color:var(--text-3)">SHOLINGANALLUR · CHENNAI · SINCE 2016</span></div>
+      </div>
+    </section>
+
+    <section>
+      <p class="eyebrow">03 — Buttons</p>
+      <h2 class="dsm">Pill buttons · no gradient fills</h2>
+      <div class="btns">
+        <a class="btn b-primary" href="#">Enroll Now</a>
+        <a class="btn b-green" href="#">Book a Free Trial</a>
+        <a class="btn b-gold" href="#">Download Brochure</a>
+        <a class="btn b-secondary" href="#">Explore Programs</a>
+        <a class="btn b-ghost" href="#">Learn more →</a>
+      </div>
+      <div class="navy-panel">
+        <p class="eyebrow" style="color:var(--gold)">On navy</p>
+        <div class="btns" style="margin-top:1rem">
+          <a class="btn b-primary" href="#">Enroll Now</a>
+          <a class="btn" style="border-color:rgba(255,255,255,.3);color:#fff" href="#">View Programs</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <p class="eyebrow">04 — Cards &amp; badges</p>
+      <h2 class="dsm">Bento tiles, hover lift</h2>
+      <div class="grid cards">
+        <div class="card"><span class="badge bg-green">95% Success</span><h3 style="margin:.75rem 0 .4rem">High School Mastery</h3><p style="color:var(--text-2)">Board-focused coaching for Classes 9–10.</p></div>
+        <div class="card"><span class="badge bg-gold">★ Top Rated</span><h3 style="margin:.75rem 0 .4rem">Competitive Prep</h3><p style="color:var(--text-2)">NTSE, Olympiads &amp; scholarships.</p></div>
+        <div class="card"><span class="badge bg-blue">Filling Fast</span><h3 style="margin:.75rem 0 .4rem">Vedic Maths</h3><p style="color:var(--text-2)">Speed techniques in small batches.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <p class="eyebrow">05 — Contrast (computed live)</p>
+      <h2 class="dsm">WCAG AA</h2>
+      <p class="lede">4.5:1 body · 3:1 large/UI.</p>
+      <table id="ct"><thead><tr><th>Foreground</th><th>Background</th><th>Ratio</th><th>Body</th><th>Large/UI</th></tr></thead><tbody></tbody></table>
+    </section>
+
+    <section style="border-bottom:none">
+      <p class="eyebrow">06 — Monogram</p>
+      <h2 class="dsm">20px → 120px</h2>
+      <div class="logos">
+        <svg width="24" height="24" viewBox="0 0 48 48"><rect x="1.5" y="1.5" width="45" height="45" rx="13" fill="#0b1f4d"/><path d="M13 17 L24 37 L35 17" fill="none" stroke="#fff" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 17 L24 25 L28 17" fill="none" stroke="#1fa85c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 7.2 L25.5 10.7 L29.2 11 L26.4 13.4 L27.3 17 L24 15 L20.7 17 L21.6 13.4 L18.8 11 L22.5 10.7 Z" fill="#f4b324"/></svg>
+        <svg width="56" height="56" viewBox="0 0 48 48"><rect x="1.5" y="1.5" width="45" height="45" rx="13" fill="#0b1f4d"/><path d="M13 17 L24 37 L35 17" fill="none" stroke="#fff" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 17 L24 25 L28 17" fill="none" stroke="#1fa85c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 7.2 L25.5 10.7 L29.2 11 L26.4 13.4 L27.3 17 L24 15 L20.7 17 L21.6 13.4 L18.8 11 L22.5 10.7 Z" fill="#f4b324"/></svg>
+        <svg width="120" height="120" viewBox="0 0 48 48"><rect x="1.5" y="1.5" width="45" height="45" rx="13" fill="#0b1f4d"/><path d="M13 17 L24 37 L35 17" fill="none" stroke="#fff" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 17 L24 25 L28 17" fill="none" stroke="#1fa85c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 7.2 L25.5 10.7 L29.2 11 L26.4 13.4 L27.3 17 L24 15 L20.7 17 L21.6 13.4 L18.8 11 L22.5 10.7 Z" fill="#f4b324"/></svg>
+      </div>
+      <p class="lede">Navy badge · white "V" apex · green inner stroke · gold star (crest nod). Favicon + tight-space fallback for the full crest.</p>
+    </section>
+  </div>
+
+  <script>
+    function lin(c){c/=255;return c<=.03928?c/12.92:Math.pow((c+.055)/1.055,2.4)}
+    function lum(h){h=h.replace('#','');return .2126*lin(parseInt(h.substr(0,2),16))+.7152*lin(parseInt(h.substr(2,2),16))+.0722*lin(parseInt(h.substr(4,2),16))}
+    function ratio(a,b){const x=lum(a),y=lum(b),hi=Math.max(x,y),lo=Math.min(x,y);return (hi+.05)/(lo+.05)}
+    const pairs=[
+      ['Text 1','#0B1F4D','Background','#FFFFFF'],
+      ['Text 1','#0B1F4D','Surface','#F2F6FC'],
+      ['Text 2','#475677','Background','#FFFFFF'],
+      ['Text 3 (large)','#8794AE','Background','#FFFFFF'],
+      ['Blue','#1E50C8','Background','#FFFFFF'],
+      ['White','#FFFFFF','Blue','#1E50C8'],
+      ['White','#FFFFFF','Green','#0F7A43'],
+      ['Navy','#0B1F4D','Gold','#F4B324'],
+      ['Gold strong','#B07A09','Background','#FFFFFF'],
+      ['Navy-fg','#EAF0FB','Navy','#0B1F4D'],
+      ['Green (text)','#0F7A43','Background','#FFFFFF'],
+    ];
+    const tb=document.querySelector('#ct tbody');
+    pairs.forEach(([fn,fc,bn,bc])=>{const r=ratio(fc,bc),body=r>=4.5,lg=r>=3;const tr=document.createElement('tr');
+      tr.innerHTML='<td><span class="sw" style="background:'+fc+'"></span>'+fn+' <code style="opacity:.6">'+fc+'</code></td>'+
+      '<td><span class="sw" style="background:'+bc+'"></span>'+bn+' <code style="opacity:.6">'+bc+'</code></td>'+
+      '<td class="ratio">'+r.toFixed(2)+':1</td>'+
+      '<td class="'+(body?'pass':'fail')+'">'+(body?'PASS':'—')+'</td>'+
+      '<td class="'+(lg?'pass':'fail')+'">'+(lg?'PASS':'FAIL')+'</td>';
+      tb.appendChild(tr);});
+  </script>
+</body>
+</html>
