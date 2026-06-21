@@ -19,20 +19,25 @@ const ContactInteractive = () => {
   return (
     <main className="min-h-screen bg-background">
       {/* Hero */}
-      <section className="relative overflow-hidden bg-navy text-navy-foreground pt-20">
-        <div className="absolute -top-20 right-10 w-72 h-72 rounded-full bg-primary/30 blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-10 w-72 h-72 rounded-full bg-green/20 blur-3xl pointer-events-none" />
+      <section className="relative overflow-hidden bg-background pt-20">
         <div
-          className="absolute inset-0 opacity-[0.06] pointer-events-none"
-          style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '34px 34px' }}
+          className="absolute inset-0 opacity-[0.5] pointer-events-none"
+          style={{
+            backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(11,31,77,0.10) 1px, transparent 0)',
+            backgroundSize: '26px 26px',
+            maskImage: 'radial-gradient(ellipse 80% 70% at 30% 30%, black, transparent)',
+            WebkitMaskImage: 'radial-gradient(ellipse 80% 70% at 30% 30%, black, transparent)',
+          }}
         />
+        <div className="absolute -top-24 -right-20 w-[34rem] h-[34rem] rounded-full bg-primary/10 blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-28 -left-24 w-[28rem] h-[28rem] rounded-full bg-green-bright/10 blur-3xl pointer-events-none" />
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <div className="max-w-3xl py-20 sm:py-28">
-            <p className="eyebrow !text-gold mb-4">Contact Us</p>
-            <h1 className="font-display font-semibold text-[clamp(2.75rem,6.5vw,5rem)] leading-[1.0]">
-              Get in <span className="text-gold">touch</span>
+            <p className="eyebrow mb-4">Contact Us</p>
+            <h1 className="font-display font-semibold text-[clamp(2.75rem,6.5vw,5rem)] leading-[1.0] text-navy">
+              Get in <span className="text-primary mark-gold">touch</span>
             </h1>
-            <p className="text-lg sm:text-xl text-navy-foreground/75 max-w-2xl mt-6 leading-relaxed">
+            <p className="text-lg sm:text-xl text-text-secondary max-w-2xl mt-6 leading-relaxed">
               Start your journey to academic excellence. Our admissions team is here to answer your
               questions and guide you through enrollment.
             </p>
