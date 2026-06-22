@@ -4,6 +4,8 @@ import '@/styles/tailwind.css';
 import { ChatProvider } from '@/context/ChatContext';
 import SmoothScroll from '@/components/motion/SmoothScroll';
 import Cursor from '@/components/motion/Cursor';
+import Preloader from '@/components/common/Preloader';
+import ScrollToTop from '@/components/motion/ScrollToTop';
 
 export const viewport = {
   width: 'device-width',
@@ -35,7 +37,9 @@ export default function RootLayout({
         <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="anonymous" />
       </head>
       <body>
+        <Preloader />
         <Cursor />
+        <ScrollToTop />
         <SmoothScroll>
           <ChatProvider>{children}</ChatProvider>
         </SmoothScroll>

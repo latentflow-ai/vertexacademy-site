@@ -200,4 +200,10 @@
     @keyframes shimmer {
         100% { transform: translateX(100%); }
     }
+
+    /* button click ripple */
+    @keyframes ripple {
+        from { transform: scale(0); opacity: 0.5; }
+        to { transform: scale(1); opacity: 0; }
+    }
 }

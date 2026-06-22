@@ -4,13 +4,14 @@ import Icon from '@/components/ui/AppIcon';
 import Button from '@/components/ui/Button';
 import Magnetic from '@/components/motion/Magnetic';
 import Reveal from '@/components/motion/Reveal';
+import Spotlight from '@/components/motion/Spotlight';
 
 const CTASection = ({ className = '' }: { className?: string }) => {
   return (
     <section className={`section-y bg-background ${className}`}>
       <div className="container mx-auto px-4 sm:px-6">
         <Reveal>
-          <div className="relative overflow-hidden bg-navy text-navy-foreground rounded-2xl px-6 py-14 sm:px-12 sm:py-16 lg:p-20">
+          <Spotlight color="rgba(244,179,36,0.16)" className="relative overflow-hidden bg-navy text-navy-foreground rounded-2xl px-6 py-14 sm:px-12 sm:py-16 lg:p-20">
             <div className="absolute -top-16 -right-10 w-72 h-72 rounded-full bg-primary/25 blur-3xl pointer-events-none" />
             <div className="absolute -bottom-20 -left-10 w-72 h-72 rounded-full bg-green/20 blur-3xl pointer-events-none" />
             <div
@@ -70,7 +71,7 @@ const CTASection = ({ className = '' }: { className?: string }) => {
                 </div>
               </div>
             </div>
-          </div>
+          </Spotlight>
         </Reveal>
       </div>
     </section>

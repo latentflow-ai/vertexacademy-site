@@ -4,9 +4,10 @@ import { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring, useReducedMotion } from 'framer-motion';
 
 /**
- * Desktop-only custom cursor: a precise dot + a springy ring that grows over
- * interactive elements. Disabled on touch/coarse pointers and when
- * prefers-reduced-motion is set.
+ * Desktop-only custom cursor. Ring + dot live in ONE spring-followed container,
+ * so the dot is always perfectly centered inside the ring (no lag separation).
+ * The ring grows over interactive elements. Disabled on touch / coarse pointers
+ * and when prefers-reduced-motion is set.
  */
 export default function Cursor() {
   const reduce = useReducedMotion();
@@ -16,8 +17,8 @@ export default function Cursor() {
 
   const x = useMotionValue(-100);
   const y = useMotionValue(-100);
-  const ringX = useSpring(x, { stiffness: 350, damping: 28, mass: 0.5 });
-  const ringY = useSpring(y, { stiffness: 350, damping: 28, mass: 0.5 });
+  const sx = useSpring(x, { stiffness: 600, damping: 30, mass: 0.4 });
+  const sy = useSpring(y, { stiffness: 600, damping: 30, mass: 0.4 });
 
   useEffect(() => {
     const fine =
@@ -53,25 +54,34 @@ export default function Cursor() {
   if (!enabled) return null;
 
   return (
-    <>
-      {/* ring */}
-      <motion.div style={{ x: ringX, y: ringY }} className="pointer-events-none fixed top-0 left-0 z-[9999]">
-        <motion.div
-          className="-translate-x-1/2 -translate-y-1/2 rounded-full border"
-          animate={{
-            width: hovering ? 52 : 30,
-            height: hovering ? 52 : 30,
-            borderColor: hovering ? 'rgba(15,122,67,0.7)' : 'rgba(30,80,200,0.5)',
-            backgroundColor: hovering ? 'rgba(31,168,92,0.10)' : 'rgba(30,80,200,0)',
-            scale: down ? 0.8 : 1,
-          }}
-          transition={{ type: 'spring', stiffness: 300, damping: 22 }}
-        />
-      </motion.div>
-      {/* dot */}
-      <motion.div style={{ x, y }} className="pointer-events-none fixed top-0 left-0 z-[9999]">
-        <div className="-translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-primary" />
-      </motion.div>
-    </>
+    <motion.div
+      style={{ x: sx, y: sy }}
+      className="pointer-events-none fixed top-0 left-0 z-[100000] mix-blend-normal"
+      aria-hidden="true"
+    >
+      {/* ring — centered on the pointer */}
+      <motion.div
+        className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 rounded-full border"
+        animate={{
+          width: hovering ? 54 : 32,
+          height: hovering ? 54 : 32,
+          borderColor: hovering ? 'rgba(15,122,67,0.75)' : 'rgba(30,80,200,0.55)',
+          backgroundColor: hovering ? 'rgba(31,168,92,0.10)' : 'rgba(30,80,200,0)',
+          scale: down ? 0.82 : 1,
+        }}
+        transition={{ type: 'spring', stiffness: 320, damping: 22 }}
+      />
+      {/* dot — same origin, so always centered inside the ring */}
+      <motion.div
+        className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary"
+        animate={{
+          width: hovering ? 5 : 7,
+          height: hovering ? 5 : 7,
+          opacity: hovering ? 0.6 : 1,
+          scale: down ? 0.8 : 1,
+        }}
+        transition={{ type: 'spring', stiffness: 320, damping: 22 }}
+      />
+    </motion.div>
   );
 }
