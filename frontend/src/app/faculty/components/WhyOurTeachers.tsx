@@ -15,7 +15,7 @@ interface Benefit {
 
 const benefits: Benefit[] = [
   { icon: 'AcademicCapIcon', title: 'Highly Qualified', description: 'All faculty hold advanced degrees and specialised certifications, ensuring expert knowledge delivery.' },
-  { icon: 'HeartIcon', title: 'Student-Centric', description: 'Teachers adapt their methods to each student’s needs so everyone reaches their full potential.' },
+  { icon: 'HeartIcon', title: 'Student-Centric', description: 'Faculty adapt their methods to each student’s needs so everyone reaches their full potential.' },
   { icon: 'LightBulbIcon', title: 'Innovative Methods', description: 'Modern techniques, interactive tools, and technology make learning engaging and effective.' },
   { icon: 'ChartBarIcon', title: 'Proven Track Record', description: 'A consistent 95% success rate, with admissions to premier institutions across India.' },
   { icon: 'UserGroupIcon', title: 'Small Batch Focus', description: 'A 1:8 teacher-student ratio ensures personalised attention in every class.' },
@@ -32,7 +32,7 @@ const WhyOurTeachers: React.FC<{ className?: string }> = ({ className = '' }) =>
           <div className="max-w-2xl mb-12 sm:mb-14">
             <p className="eyebrow !text-green mb-3">Excellence in Education</p>
             <h2 className="text-display-md text-navy">
-              Why our teachers <span className="text-primary mark-gold">stand out</span>
+              Why our faculty <span className="text-primary mark-gold">stand out</span>
             </h2>
             <p className="text-body-lg text-text-secondary mt-4">
               The difference passionate, qualified, dedicated educators make in shaping academic success.

@@ -59,9 +59,12 @@ export default function Cursor() {
       className="pointer-events-none fixed top-0 left-0 z-[100000] mix-blend-normal"
       aria-hidden="true"
     >
-      {/* ring — centered on the pointer */}
+      {/* ring — centered on the pointer. Centering is done via Framer's x/y
+          ('-50%') so it composes with the animated `scale`; Tailwind
+          -translate-* classes would be overwritten by Framer's transform. */}
       <motion.div
-        className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 rounded-full border"
+        className="absolute top-0 left-0 rounded-full border"
+        style={{ x: '-50%', y: '-50%' }}
         animate={{
           width: hovering ? 54 : 32,
           height: hovering ? 54 : 32,
@@ -71,9 +74,10 @@ export default function Cursor() {
         }}
         transition={{ type: 'spring', stiffness: 320, damping: 22 }}
       />
-      {/* dot — same origin, so always centered inside the ring */}
+      {/* dot — same origin + same -50% centering, so always centered in ring */}
       <motion.div
-        className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary"
+        className="absolute top-0 left-0 rounded-full bg-primary"
+        style={{ x: '-50%', y: '-50%' }}
         animate={{
           width: hovering ? 5 : 7,
           height: hovering ? 5 : 7,

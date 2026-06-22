@@ -13,6 +13,13 @@ dist/
 .env.local
 .env.*.local
 
+# Runtime file uploads (faculty notes etc.)
+backend/uploads/
+uploads/
+
+# Temp scripts
+**/_tmp_*.js
+
 # Logs
 *.log
 npm-debug.log*

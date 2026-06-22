@@ -20,7 +20,11 @@ export const metadata = {
   description:
     "Chennai's premium tuition centre. Small batches, expert faculty, and a 95% success rate. A unit of Thanga Ramachandran Educational Trust — since 2016.",
   icons: {
-    icon: [{ url: '/favicon.ico', type: 'image/x-icon' }],
+    icon: [
+      { url: '/logo.png', type: 'image/png' },
+      { url: '/favicon.ico', type: 'image/x-icon' },
+    ],
+    apple: [{ url: '/logo.png' }],
   },
 };
 

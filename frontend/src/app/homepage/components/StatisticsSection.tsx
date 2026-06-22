@@ -19,7 +19,7 @@ const stats: Stat[] = [
   { id: 1, value: 2000, suffix: '+', label: 'Students Enrolled', icon: 'UserGroupIcon', tone: 'navy' },
   { id: 2, value: 95, suffix: '%', label: 'Success Rate', icon: 'TrophyIcon', tone: 'green' },
   { id: 3, value: 9, suffix: '+', label: 'Years of Excellence', icon: 'AcademicCapIcon', tone: 'gold' },
-  { id: 4, value: 50, suffix: '+', label: 'Expert Teachers', icon: 'UserIcon', tone: 'white' },
+  { id: 4, value: 50, suffix: '+', label: 'Expert Faculty', icon: 'UserIcon', tone: 'white' },
 ];
 
 const toneClass: Record<Stat['tone'], string> = {

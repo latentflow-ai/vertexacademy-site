@@ -20,7 +20,7 @@ const Footer = ({ className = '' }: FooterProps) => {
     { label: 'Home', path: '/homepage' },
     { label: 'About Us', path: '/about-us' },
     { label: 'Programs', path: '/programs' },
-    { label: 'Teachers', path: '/teachers' },
+    { label: 'Faculty', path: '/faculty' },
     { label: 'Gallery', path: '/gallery' },
     { label: 'Contact', path: '/contact' },
   ];

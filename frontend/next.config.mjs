@@ -90,6 +90,17 @@ const nextConfig = {
                 destination: '/homepage',
                 permanent: false,
             },
+            // Teacher → Faculty rename: keep old links working
+            {
+                source: '/teachers',
+                destination: '/faculty',
+                permanent: true,
+            },
+            {
+                source: '/teacherslogin',
+                destination: '/facultylogin',
+                permanent: true,
+            },
         ];
     },
 

@@ -3,6 +3,7 @@
 import React from 'react';
 import {
     AcademicCapIcon as AcademicCapIconOutline,
+    ArrowPathIcon,
     ArrowLeftIcon,
     ArrowLeftOnRectangleIcon,
     ArrowRightIcon,
@@ -102,6 +103,7 @@ interface IconProps {
 
 const outlineIcons: Record<string, React.ComponentType<any>> = {
     AcademicCapIcon: AcademicCapIconOutline,
+    ArrowPathIcon,
     ArrowLeftIcon,
     ArrowLeftOnRectangleIcon,
     ArrowRightIcon,

@@ -1,6 +1,8 @@
 import express, { Express, Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
+import helmet from 'helmet';
+import cookieParser from 'cookie-parser';
 import 'express-async-errors';
 import dotenv from 'dotenv';
 
@@ -8,7 +10,16 @@ import dotenv from 'dotenv';
 // Chat route removed (chat disabled)
 import enrollmentRoute from './routes/enrollment.route';
 import campusVisitRoute from './routes/campus-visit.route';
-import adminRoute from './routes/admin.route';
+import authRoute from './routes/auth.route';
+import facultyRoute from './routes/faculty.route';
+import studentsRoute from './routes/students.route';
+import classesRoute from './routes/classes.route';
+import attendanceRoute from './routes/attendance.route';
+import marksRoute from './routes/marks.route';
+import timetableRoute from './routes/timetable.route';
+import notesRoute from './routes/notes.route';
+import meRoute from './routes/me.route';
+import auditRoute from './routes/audit.route';
 
 // Load environment variables
 dotenv.config();
@@ -17,8 +28,8 @@ dotenv.config();
 const requiredEnvVars = [
     'SMTP_USER',
     'SMTP_PASS',
-    'ADMIN_USERNAME',
-    'ADMIN_PASSWORD',
+    'DATABASE_URL',
+    'JWT_SECRET',
 ];
 
 const missingVars = requiredEnvVars.filter((varName) => !process.env[varName]);
@@ -32,12 +43,14 @@ const app: Express = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
+app.use(helmet());
 app.use(
     cors({
         origin: process.env.FRONTEND_URL || 'http://localhost:4028',
         credentials: true,
     })
 );
+app.use(cookieParser());
 app.use(morgan('combined'));
 
 const MAX_SIZE = `${process.env.MAX_FILE_SIZE || 10}mb`;
@@ -57,7 +70,16 @@ app.get('/api/health', (req: Request, res: Response) => {
 // /api/chat route removed
 app.use('/api/enrollment', enrollmentRoute);
 app.use('/api/campus-visit', campusVisitRoute);
-app.use('/api/admin', adminRoute);
+app.use('/api/auth', authRoute);
+app.use('/api/faculty', facultyRoute);
+app.use('/api/students', studentsRoute);
+app.use('/api/classes', classesRoute);
+app.use('/api/attendance', attendanceRoute);
+app.use('/api/marks', marksRoute);
+app.use('/api/timetable', timetableRoute);
+app.use('/api/notes', notesRoute);
+app.use('/api/me', meRoute);
+app.use('/api/audit', auditRoute);
 
 // 404 handler
 app.use((req: Request, res: Response) => {

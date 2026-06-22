@@ -12,10 +12,10 @@ interface HeroStat {
 }
 
 const stats: HeroStat[] = [
-  { value: 25, suffix: '+', label: 'Expert Teachers' },
+  { value: 25, suffix: '+', label: 'Expert Faculty' },
   { value: 15, suffix: '+', label: 'Years Experience' },
   { value: 95, suffix: '%', label: 'Success Rate' },
-  { value: 8, suffix: '', prefix: '1:', label: 'Teacher Ratio' },
+  { value: 8, suffix: '', prefix: '1:', label: 'Faculty Ratio' },
 ];
 
 const HeroStatCard = ({ stat }: { stat: HeroStat }) => {

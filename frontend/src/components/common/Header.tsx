@@ -25,7 +25,7 @@ const Header = ({ className = '' }: HeaderProps) => {
       { label: 'Home', path: '/homepage' },
       { label: 'About', path: '/about-us' },
       { label: 'Programs', path: '/programs' },
-      { label: 'Teachers', path: '/teachers' },
+      { label: 'Faculty', path: '/faculty' },
       { label: 'Gallery', path: '/gallery' },
       { label: 'Contact', path: '/contact' },
     ],
@@ -88,6 +88,9 @@ const Header = ({ className = '' }: HeaderProps) => {
 
           {/* Desktop CTAs */}
           <div className="hidden lg:flex items-center gap-2.5 flex-shrink-0">
+            <Button href="/portal" variant="ghost" size="sm">
+              Portal login
+            </Button>
             <Button href="/campus-visit" variant="ghost" size="sm">
               Visit Campus
             </Button>
@@ -149,6 +152,9 @@ const Header = ({ className = '' }: HeaderProps) => {
                   );
                 })}
                 <div className="pt-4 grid gap-2.5 border-t border-border mt-3">
+                  <Button href="/portal" variant="secondary" size="md" className="w-full" onClick={() => setOpen(false)}>
+                    Portal login
+                  </Button>
                   <Button href="/campus-visit" variant="secondary" size="md" className="w-full" onClick={() => setOpen(false)}>
                     Visit Campus
                   </Button>
